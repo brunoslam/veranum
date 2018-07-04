@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import Validadores.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.subVistas.invServiciosController">
+    <children>
+          <ScrollPane prefHeight="600.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <GridPane prefHeight="597.0" prefWidth="1006.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="503.0" minWidth="10.0" prefWidth="183.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="839.0" minWidth="10.0" prefWidth="839.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="120.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="143.0" minHeight="10.0" prefHeight="55.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="72.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="125.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="342.0" minHeight="10.0" prefHeight="310.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Inventario servicios" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                  <Label layoutX="10.0" layoutY="68.0" text="Nombre" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <Label layoutX="10.0" layoutY="112.0" text="Precio" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <TextField fx:id="txtNombreServicio" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></TextField>
+                  <TableView fx:id="tblListaServicios" onMouseClicked="#clickTabla" prefHeight="150.0" prefWidth="800.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <columns>
+                        <TableColumn fx:id="colId" prefWidth="188.0" text="ID Servicio" />
+                        <TableColumn fx:id="colNombreServicio" prefWidth="302.0" text="Nombre Servicio" />
+                        <TableColumn fx:id="colPrecioServicio" prefWidth="300.0" text="Precio Servicio" />
+                     </columns>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </TableView>
+                  <Label fx:id="lblError" text="Error: " textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <NumberTextField fx:id="txtPrecioServicio" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></NumberTextField>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <children>
+                        <Button fx:id="btnAgregar" mnemonicParsing="false" onAction="#ingresarServicio" prefWidth="76.0" text="Agregar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#actualizarServicio" prefWidth="76.0" text="Modificar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#eliminarServicio" prefWidth="76.0" text="Eliminar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancela" prefWidth="76.0" text="Cancelar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblIdServicio" visible="false" GridPane.rowIndex="3" />
+               </children>
+            </GridPane>
+         </content>
+          </ScrollPane>
+    </children>
+</AnchorPane>

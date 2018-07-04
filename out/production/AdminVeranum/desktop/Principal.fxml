@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<BorderPane fx:id="borderPrincipal" maxHeight="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.PrincipalController">
+    <top>
+        <VBox>
+            <children>
+            <HBox>
+               <children>
+                      <MenuBar fx:id="MenuBprincipal" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                          <menus>
+                              <Menu mnemonicParsing="false" text="Archivo">
+                                  <items>
+                              <Menu mnemonicParsing="false" text="Administrar Usuarios">
+                                <items>
+                                  <MenuItem fx:id="menCreaUsuario" mnemonicParsing="false" onAction="#creaUsuario" text="Crear Usuario" />
+                                    <MenuItem fx:id="menModUser" mnemonicParsing="false" onAction="#AdminUsuarios" text="Modificar o Eliminar Usuario" />
+                                </items>
+                              </Menu>
+                                      <MenuItem fx:id="menCerrarSesion" mnemonicParsing="false" onAction="#gotoLogin" text="Cerrar Sesión" />
+                              <SeparatorMenuItem mnemonicParsing="false" />
+                              <MenuItem mnemonicParsing="false" onAction="#salirApp" text="Cerrar" />
+                                  </items>
+                              </Menu>
+                              <Menu mnemonicParsing="false" text="Edición">
+                                  <items>
+                                      <MenuItem mnemonicParsing="false" text="Delete" />
+                                  </items>
+                              </Menu>
+                        <Menu mnemonicParsing="false" text="Gestion">
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#openGesRegistroPasajeros" text="Administracion Pasajero" />
+                              <MenuItem mnemonicParsing="false" onAction="#openGesRegistrarEstadia" text="Registrar Estadia" />
+                              <MenuItem fx:id="menItemCierreEstadia" mnemonicParsing="false" onAction="#oeenCierreEstadia" text="Cierre Estadia" />
+                              <MenuItem mnemonicParsing="false" onAction="#openRegistroServiExtra" text="Registrar Servicios Extra" />
+                              <MenuItem fx:id="menReportes" mnemonicParsing="false" onAction="#abrirReportes" text="Reportes" />
+                           </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="Administración">
+                          <items>
+                            <MenuItem fx:id="menInvHoteles" mnemonicParsing="false" onAction="#openInvHoteles" text="Hoteles" />
+                              <MenuItem mnemonicParsing="false" onAction="#openInvenarioHabitaciones" text="Habitación" />
+                              <MenuItem fx:id="menTiposHabitacion" mnemonicParsing="false" onAction="#tiposHabitacion" text="Tipos de Habitación" />
+                              <MenuItem fx:id="menServiciosExtra" mnemonicParsing="false" onAction="#openMantenedorServiciosHotel" text="Servicios Extras Hotel" />
+                              <MenuItem mnemonicParsing="false" onAction="#openInvInspeccion" text="Inspecciones Sanitarias" />
+                              <MenuItem mnemonicParsing="false" onAction="#openInvInsumoCocina" text="Inventario cocina" />
+                              <MenuItem mnemonicParsing="false" onAction="#openInvMuebleHabitacion" text="Inventario muebles" />
+                          </items>
+                        </Menu>
+                              <Menu mnemonicParsing="false" text="Ayuda">
+                                  <items>
+                                      <MenuItem fx:id="menAbout" mnemonicParsing="false" onAction="#about" text="Acerca de" />
+                                  </items>
+                              </Menu>
+                          </menus>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                      </MenuBar>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+    </top>
+    <bottom>
+        <HBox BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="lblUserActual" />
+            </children>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
+        </HBox>
+    </bottom>
+   <center>
+      <ImageView fx:id="imgLogo" fitHeight="207.0" fitWidth="426.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@../resources/veranum_logo.png" />
+         </image>
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </BorderPane.margin>
+      </ImageView>
+   </center>
+</BorderPane>

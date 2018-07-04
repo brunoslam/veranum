@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import Validadores.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.subVistas.invInspeccionSanitariaController">
+    <children>
+        <ScrollPane prefHeight="600.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane prefHeight="578.0" prefWidth="1032.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" maxWidth="360.0" minWidth="10.0" prefWidth="204.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="737.0" minWidth="10.0" prefWidth="658.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="283.0" minHeight="10.0" prefHeight="283.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                  <Label text="Inspecciones Sanitarias" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                  <Label text="Hotel" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <TableView fx:id="tblInspeccion" onMouseClicked="#clickTabla" prefHeight="224.0" prefWidth="714.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                     <columns>
+                        <TableColumn fx:id="colNombreHotel" prefWidth="75.0" text="Hotel" />
+                        <TableColumn fx:id="colNumHab" prefWidth="140.0" text="Nro habitación" />
+                        <TableColumn fx:id="colTipoHabitacion" prefWidth="116.0" text="Tipo habitación" />
+                        <TableColumn fx:id="colResSanitaria" prefWidth="100.0" text="Resolución" />
+                        <TableColumn fx:id="colFechaResolucion" prefWidth="133.0" text="Fecha" />
+                     </columns></TableView>
+                  <Label text="Resolución sanitaria" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <ComboBox fx:id="cmbNumeroHabitacion" prefHeight="25.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Número habitación" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <Label text="Listar habitaciones" GridPane.rowIndex="7">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <DatePicker fx:id="dtFechaRes" prefHeight="25.0" prefWidth="196.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label text="Fecha resolución" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                  <ComboBox fx:id="cmbHotel" onAction="#listarNroHabitacion" prefHeight="25.0" prefWidth="195.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ComboBox fx:id="cmbResolucion" prefHeight="25.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#ingresarInspeccion" prefWidth="135.0" text="Ingresar" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#InspeccionModificar" prefWidth="135.0" text="Cambiar  Estado" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#inspeccionEliminar" prefWidth="135.0" text="Eliminar" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#listarInspeccionNoInspeccionada" prefWidth="135.0" text="No inspeccionadas">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#listarInspeccionReprobada" prefWidth="135.0" text="Desaprobadas">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#listarInspeccionAprobada" prefWidth="135.0" text="Aprobadas">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#listarTodasInspeccionPorHotel" prefWidth="135.0" text="Todas">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin></Button>
+                     </children>
+                  </HBox>
+                  <Label fx:id="lblError" text="Error" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                    </children>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

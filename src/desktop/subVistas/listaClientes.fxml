@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="643.0" prefWidth="1254.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.subVistas.listaClientesController">
+
+
+    <children>
+      <SplitPane dividerPositions="0.6677577741407529" prefHeight="600.0" prefWidth="1240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+         <items>
+            <VBox>
+               <children>
+                  <Label text="Mantenedor de Clientes">
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="tblListaClientes" maxHeight="-Infinity" onMousePressed="#clickTabla" prefHeight="598.0" prefWidth="812.0">
+                    <columns>
+                      <TableColumn fx:id="colId" prefWidth="75.0" text="ID Cliente" />
+                      <TableColumn fx:id="colRut" maxWidth="1.7976931348623157E308" prefWidth="74.0" text="Rut" />
+                        <TableColumn fx:id="colNombre" prefWidth="128.0" text="Nombre" />
+                        <TableColumn fx:id="colApPaterno" prefWidth="116.809814453125" text="Apellido Paterno" />
+                        <TableColumn fx:id="colApMaterno" maxWidth="139.54437255859375" prefWidth="117.4066162109375" text="Apellido Materno" />
+                        <TableColumn fx:id="colEmail" prefWidth="206.0" text="Email" />
+                        <TableColumn fx:id="colTelefono" maxWidth="217.0" minWidth="4.0" prefWidth="92.0" text="Telefono" />
+                    </columns>
+                     <padding>
+                        <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                     </padding>
+                  </TableView>
+               </children>
+            </VBox>
+            <AnchorPane>
+               <children>
+                  <VBox layoutX="52.0" layoutY="40.0">
+                     <children>
+                        <Label fx:id="lblRut">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="Rut: ">
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblNombre">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="Nombre: ">
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold Italic" size="13.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPaterno">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="Ap Paterno:">
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMaterno">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <Label text="Ap Materno:">
+                                 <padding>
+                                    <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </graphic>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <HBox VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="btnTest" mnemonicParsing="false" onAction="#seleccionUsuario" prefWidth="90.0" text="Seleccionar">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnEliminar" mnemonicParsing="false" onAction="#eliminaCliente" prefWidth="90.0" text="Eliminar">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#canceltoRegistro" prefWidth="90.0" text="Cancelar">
+                                 <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></AnchorPane>
+         </items>
+         <padding>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </padding>
+      </SplitPane>
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="444.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.subVistas.gesRegistroServExtraController">
+   <children>
+      <TableView fx:id="tblservicios" disable="true" layoutY="200.0" prefHeight="250.0" prefWidth="340.0">
+        <columns>
+          <TableColumn fx:id="idservicio" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="nombreservicio" prefWidth="150.0" text="Nombre" />
+            <TableColumn fx:id="precioservicio" minWidth="0.0" prefWidth="114.0" text="Precio" />
+        </columns>
+      </TableView>
+      <GridPane layoutY="46.0" prefHeight="99.0" prefWidth="653.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="144.0" minWidth="10.0" prefWidth="144.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="395.0" minWidth="365.0" prefWidth="365.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="0.0" prefWidth="0.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Cliente">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Font Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label text="Reserva" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font name="System Font Bold" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnSelCliente" mnemonicParsing="false" onAction="#seleccionarCliente" prefWidth="90.0" text="Seleccionar" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Button fx:id="btnSelReserva" disable="true" mnemonicParsing="false" onAction="#seleccionarReserva" prefWidth="90.0" text="Seleccionar" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+            </Button>
+            <Label fx:id="txtcliente" GridPane.columnIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="txtReserva" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </GridPane.margin>
+            </Label>
+         </children>
+      </GridPane>
+      <HBox layoutX="340.0" layoutY="253.0" prefHeight="100.0" prefWidth="200.0" AnchorPane.leftAnchor="340.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancela" prefWidth="90.0" text="Cancelar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnLimpiar" mnemonicParsing="false" onAction="#limpiarCampos" prefWidth="90.0" text="Limpiar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnGuardar" disable="true" mnemonicParsing="false" onAction="#btnGuardaServ" prefWidth="90.0" text="Guardar">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <HBox layoutY="-4.0" prefHeight="46.0" prefWidth="164.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label text="Ingreso Servicios Extra">
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

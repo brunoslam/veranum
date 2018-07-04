@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="desktop.subVistas.gescCierreEstadiaListaClienteController">
+
+    <children>
+        <SplitPane dividerPositions="0.6677577741407529" prefHeight="600.0" prefWidth="1240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+            <items>
+                <VBox>
+                    <children>
+                        <Label text="Selección de Clientes">
+                            <padding>
+                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                            </padding>
+                            <font>
+                                <Font name="System Bold" size="21.0" />
+                            </font>
+                        </Label>
+                        <TableView fx:id="tblListaClientes" maxHeight="-Infinity" onMousePressed="#clickTabla" prefHeight="598.0" prefWidth="812.0">
+                            <columns>
+                                <TableColumn fx:id="colId" prefWidth="75.0" text="ID Cliente" />
+                                <TableColumn fx:id="colRut" maxWidth="1.7976931348623157E308" prefWidth="74.0" text="Rut" />
+                                <TableColumn fx:id="colNombre" prefWidth="128.0" text="Nombre" />
+                                <TableColumn fx:id="colApPaterno" prefWidth="116.809814453125" text="Apellido Paterno" />
+                                <TableColumn fx:id="colApMaterno" maxWidth="139.54437255859375" prefWidth="117.4066162109375" text="Apellido Materno" />
+                                <TableColumn fx:id="colEmail" prefWidth="206.0" text="Email" />
+                                <TableColumn fx:id="colTelefono" maxWidth="217.0" minWidth="4.0" prefWidth="92.0" text="Telefono" />
+                            </columns>
+                            <padding>
+                                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                            </padding>
+                        </TableView>
+                    </children>
+                </VBox>
+                <AnchorPane>
+                    <children>
+                        <GridPane layoutX="20.0" layoutY="19.0" prefHeight="271.0" prefWidth="382.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="178.0" minWidth="10.0" prefWidth="127.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="247.0" minWidth="10.0" prefWidth="179.0" />
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            </rowConstraints>
+                            <children>
+                                <Label text="Rut: " GridPane.rowIndex="1">
+                                    <padding>
+                                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblRut" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Nombre: " GridPane.rowIndex="2">
+                                    <padding>
+                                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold Italic" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblNombre" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Ap Paterno:" GridPane.rowIndex="3">
+                                    <padding>
+                                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblPaterno" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label text="Ap Materno:" GridPane.rowIndex="4">
+                                    <padding>
+                                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblMaterno" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                    <GridPane.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </GridPane.margin>
+                                </Label>
+                                <Label fx:id="lblError" textFill="#f50202" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                    <font>
+                                        <Font name="System Bold" size="13.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </GridPane>
+                        <HBox layoutX="71.0" layoutY="321.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="321.0">
+                            <children>
+                                <Button fx:id="btnSelect" disable="true" mnemonicParsing="false" onAction="#seleccionUsuario" prefWidth="90.0" text="Seleccionar">
+                                    <HBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                                <Button fx:id="btnCancela" mnemonicParsing="false" onAction="#btnCancela" prefWidth="90.0" text="Cancelar">
+                                    <HBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </HBox.margin>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding></AnchorPane>
+            </items>
+            <padding>
+                <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+            </padding>
+        </SplitPane>
+    </children>
+
+
+</AnchorPane>

@@ -1,0 +1,160 @@
+package desktop.subVistas;
+
+import ConexionDB.ConexionDB;
+import Modelo.Hab;
+import Modelo.Habitacion;
+import Validadores.NumberTextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+
+import java.lang.String;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+/**
+ * Created by Palma Ávila on 03/11/2015.
+ */
+public class InvHabitacionesController implements Initializable{
+
+    @FXML ComboBox cmbHoteles;
+    @FXML ComboBox cmbTipoHabitacion;
+    /*
+    @FXML TextField txtIdHbtacion;
+    @FXML TextField txtTipoHbtacion;
+    @FXML NumberTextField txtPrecioHbtacion;
+    @FXML CheckBox chkDisponible;
+    @FXML ComboBox cmbResSanitaria;
+
+   */
+    private ObservableList<Hab> lista = FXCollections.observableArrayList();
+    @FXML private TableView<Hab> tblHbtaciones = new TableView<>();
+
+    @FXML TableColumn<Hab, String> colNombreHotel;
+    @FXML TableColumn<Hab, String> colNumeroHab;
+    @FXML TableColumn<Hab, String> colTipoHab;
+    @FXML TableColumn<Hab, Integer> colPrecioHab;
+    @FXML TableColumn<Hab, String> colResSanitaria;
+
+    //hotel, numero, tipoHab, precio, resolucions
+
+
+    public void initialize(URL url, ResourceBundle rb){
+        listarHoteles();
+        listarTipoHbtacion();
+        colNombreHotel.setCellValueFactory(new PropertyValueFactory<Hab, String>("nombreHotel"));
+        colNumeroHab.setCellValueFactory(new PropertyValueFactory<Hab, String>("numeroreal"));
+        colTipoHab.setCellValueFactory(new PropertyValueFactory<Hab, String>("tipoHabitacion"));
+        colPrecioHab.setCellValueFactory(new PropertyValueFactory<Hab, Integer>("precio"));
+        colResSanitaria.setCellValueFactory(new PropertyValueFactory<Hab, String>("resolucionSanitaria"));
+        listarHbtacion();
+    }
+
+
+    public void listarHbtacion(){
+        Connection con= ConexionDB.GetConnection();
+        lista.clear();
+        try {
+            Statement st;
+            ResultSet rs = null;
+
+            String sql = "exec HabitacionListar;";
+            rs=con.createStatement().executeQuery(sql);
+
+            while   (rs.next()){
+
+                lista.add(
+                        new Hab(
+                                rs.getInt(1),
+                                rs.getString(2),
+                                rs.getString(3),
+                                rs.getInt(4),
+                                rs.getString(5),
+                                rs.getInt(6)
+                        )
+                );
+            }
+
+            tblHbtaciones.setItems(lista);
+        }catch (Exception ex) {
+            //  System.out.println(ex.getMessage());
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ha ocurrido un error");
+            alert.setContentText(ex.getMessage());
+
+            alert.showAndWait();
+            con=null;
+        }
+    }
+    public void ingresarHbtacion(){
+    }
+    public void eliminarHbtacion(){
+    }
+    public void actualizarHbtacion(){
+    }
+    public void listarHoteles(){
+         Connection con= ConexionDB.GetConnection();
+
+        try {
+            Statement st;
+            ResultSet rs = null;
+
+            String sql = "SELECT NombreHotel FROM Hotel;";
+            rs=con.createStatement().executeQuery(sql);
+
+            while   (rs.next()){
+                cmbHoteles.getItems().add(rs.getString(1));
+
+            }
+            // tblListaHotel.setItems(lista);
+        }catch (Exception ex) {
+            //  System.out.println(ex.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ha ocurrido un error");
+            alert.setContentText(ex.getMessage());
+            alert.showAndWait();
+            con=null;
+        }
+    }
+
+    public void listarTipoHbtacion(){
+        Connection con= ConexionDB.GetConnection();
+
+        try {
+            Statement st;
+            ResultSet rs = null;
+
+            String sql = "SELECT NombreTipoHabitacion FROM TipoHabitacion;";
+            rs=con.createStatement().executeQuery(sql);
+
+            while   (rs.next()){
+                cmbTipoHabitacion.getItems().add(rs.getString(1));
+
+            }
+            // tblListaHotel.setItems(lista);
+        }catch (Exception ex) {
+            //  System.out.println(ex.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText("Ha ocurrido un error");
+            alert.setContentText(ex.getMessage());
+            alert.showAndWait();
+            con=null;
+        }
+    }
+
+
+
+
+
+}
+
+

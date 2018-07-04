@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_adminveranum" default="compile.module.adminveranum">
+  <dirname property="module.adminveranum.basedir" file="${ant.file.module_adminveranum}"/>
+
+  <property name="project.jdk.home" value=""/>
+  <property name="project.jdk.home" value=""/>
+  <property name="module.jdk.home.adminveranum" value="${project.jdk.home}"/>
+  <property name="project.jdk.bin" value=""/>
+  <property name="project.jdk.bin" value=""/>
+  <property name="module.jdk.bin.adminveranum" value="${project.jdk.bin}"/>
+  <property name="project.jdk.classpath" value=""/>
+  <property name="project.jdk.classpath" value=""/>
+  <property name="module.jdk.classpath.adminveranum" value="${project.jdk.classpath}"/>
+
+  <property name="compiler.args" value=""/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.args.adminveranum" value="-encoding UTF-8 -source 8 ${compiler.args}"/>
+  
+  <property name="adminveranum.output.dir" value="${module.adminveranum.basedir}/out/production/AdminVeranum"/>
+  <property name="adminveranum.testoutput.dir" value="${module.adminveranum.basedir}/out/test/AdminVeranum"/>
+  
+  <path id="adminveranum.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="adminveranum.module.production.classpath">
+    <path refid="${module.jdk.classpath.adminveranum}"/>
+    <path refid="library.sqljdbc4.classpath"/>
+  </path>
+  
+  <path id="adminveranum.runtime.production.module.classpath">
+    <pathelement location="${adminveranum.output.dir}"/>
+    <path refid="library.sqljdbc4.classpath"/>
+  </path>
+  
+  <path id="adminveranum.module.classpath">
+    <path refid="${module.jdk.classpath.adminveranum}"/>
+    <pathelement location="${adminveranum.output.dir}"/>
+    <path refid="library.sqljdbc4.classpath"/>
+  </path>
+  
+  <path id="adminveranum.runtime.module.classpath">
+    <pathelement location="${adminveranum.testoutput.dir}"/>
+    <pathelement location="${adminveranum.output.dir}"/>
+    <path refid="library.sqljdbc4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.adminveranum">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.adminveranum">
+    <patternset refid="excluded.from.module.adminveranum"/>
+  </patternset>
+  
+  <path id="adminveranum.module.sourcepath">
+    <dirset dir="${module.adminveranum.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.adminveranum" depends="compile.module.adminveranum.production,compile.module.adminveranum.tests" description="Compile module AdminVeranum"/>
+
+  <target name="register.custom.compilers"></target>
+  <target name="compile.module.adminveranum.production" depends="register.custom.compilers" description="Compile module AdminVeranum; production classes">
+    <mkdir dir="${adminveranum.output.dir}"/>
+    <javac2 destdir="${adminveranum.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.adminveranum}/javac">
+      <compilerarg line="${compiler.args.adminveranum}"/>
+      <bootclasspath refid="adminveranum.module.bootclasspath"/>
+      <classpath refid="adminveranum.module.production.classpath"/>
+      <src refid="adminveranum.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.adminveranum"/>
+    </javac2>
+    
+    <copy todir="${adminveranum.output.dir}">
+      <fileset dir="${module.adminveranum.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+
+
+  <target name="compile.module.adminveranum.tests" depends="register.custom.compilers,compile.module.adminveranum.production" description="compile module AdminVeranum; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.adminveranum" description="cleanup module">
+    <delete dir="${adminveranum.output.dir}"/>
+    <delete dir="${adminveranum.testoutput.dir}"/>
+  </target>
+</project>

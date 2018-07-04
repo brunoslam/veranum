@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2508437793">
+    <data-source source="LOCAL" name="SQL Server - VERANUM@ 10.37.129.13" uuid="322770a5-f49e-4414-9d8b-2bc078135d2e">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver:// 10.37.129.13:1433;databaseName=VERANUM</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>

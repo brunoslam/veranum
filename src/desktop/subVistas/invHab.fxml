@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.paint.*?>
+<?import Validadores.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="desktop.subVistas.InvHabitacionesController">
+    <children>
+        <ScrollPane prefHeight="600.0" prefWidth="1024.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <content>
+                <GridPane prefHeight="561.0" prefWidth="1014.0">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT" maxWidth="360.0" minWidth="10.0" prefWidth="172.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="714.0" minWidth="10.0" prefWidth="690.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="38.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="116.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="108.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="230.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label text="Inventario Habitaciones" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                        <Label text="Tipo habitación" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                        <ComboBox fx:id="cmbHoteles" prefHeight="25.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></ComboBox>
+                        <Label text="Hotel" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                        <ComboBox fx:id="cmbTipoHabitacion" prefHeight="25.0" prefWidth="198.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></ComboBox>
+                        <Label text="Precio" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                        <NumberTextField fx:id="txtPrecio" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></NumberTextField>
+                        <TableView fx:id="tblHbtaciones" onMouseClicked="#clickTabla" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                            <columns>
+                                <TableColumn fx:id="colNombreHotel" prefWidth="113.0" text="Hotel" />
+                                <TableColumn fx:id="colNumeroHab" prefWidth="91.0" text="Numero hab" />
+                                <TableColumn fx:id="colTipoHab" prefWidth="166.0" text="Tipo habitación" />
+                                <TableColumn fx:id="colPrecioHab" prefWidth="103.0" text="Precio" />
+                                <TableColumn fx:id="colResSanitaria" prefWidth="240.0" text="Resolución sanitaria" />
+                            </columns>
+                     <GridPane.margin>
+                        <Insets left="20.0" right="20.0" />
+                     </GridPane.margin>
+                        </TableView>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                     <children>
+                                <Button mnemonicParsing="false" onAction="#ingresarHbtacion" prefWidth="76.0" text="Ingresar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                                <Button mnemonicParsing="false" onAction="#actualizarHbtacion" prefWidth="76.0" text="Modificar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                                <Button mnemonicParsing="false" onAction="#eliminarHbtacion" prefWidth="76.0" text="Eliminar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button fx:id="btnCancelar" mnemonicParsing="false" onAction="#btnCancela" prefWidth="76.0" text="Cancelar">
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                        <Label text="Número habitación" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                        <NumberTextField fx:id="txtNumeroHabitacion" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></NumberTextField>
+                        <Label text="Resolución sanitaria" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></Label>
+                        <ComboBox fx:id="cmbInspeecionSanitaria" prefHeight="25.0" prefWidth="195.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </GridPane.margin></ComboBox>
+                        <Label fx:id="lblError" text="Label" textFill="RED" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                            <font>
+                                <Font name="System Bold" size="12.0" />
+                            </font></Label>
+                  <Label fx:id="lblId" text="Label" visible="false" GridPane.rowIndex="7" />
+                    </children>
+                </GridPane>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

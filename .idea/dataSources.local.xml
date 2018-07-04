@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="SQL Server - VERANUM@ 10.37.129.13" uuid="322770a5-f49e-4414-9d8b-2bc078135d2e">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
